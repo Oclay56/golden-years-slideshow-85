@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import Slideshow from "@/components/Slideshow";
 import ImageUploader from "@/components/ImageUploader";
@@ -25,7 +26,7 @@ const Index = () => {
     },
     {
       src: '/lovable-uploads/7b89d453-797d-45a9-93d0-b22661536fe4.png',
-      caption: 'Dancing and celebrating 59 years of friendship'
+      caption: 'Dancing and celebrating 40 years of friendship'
     },
     {
       src: '/lovable-uploads/fd76bf61-0aea-45a0-b639-cf4038b8fc9c.png',
@@ -61,7 +62,7 @@ const Index = () => {
     },
     {
       src: '/lovable-uploads/4f9ba17f-9c15-44ce-a42a-3442a622ae4e.png',
-      caption: 'Class of 1985 celebration cakes - marking 39 years together'
+      caption: 'Class of 1985 celebration cakes - marking 40 years together'
     },
     {
       src: '/lovable-uploads/3e757bcf-15ed-42ee-adef-6d1ecc5a6616.png',
@@ -110,7 +111,12 @@ const Index = () => {
   ]);
 
   const handleImagesAdded = (newImages: { src: string; caption: string }[]) => {
-    setSlideshowImages(prev => [...prev, ...newImages]);
+    console.log('Adding images:', newImages);
+    setSlideshowImages(prev => {
+      const updated = [...prev, ...newImages];
+      console.log('Updated slideshow images count:', updated.length);
+      return updated;
+    });
     setShowUploader(false);
   };
 
@@ -122,7 +128,7 @@ const Index = () => {
             Class of 1985
           </h1>
           <h2 className="text-3xl text-yellow-300 mb-2">
-            59th Anniversary Celebration
+            40th Anniversary Celebration
           </h2>
           <p className="text-lg text-yellow-200 italic">
             Celebrating friendship, memories, and togetherness
